@@ -47,7 +47,8 @@ def modify():
     idPet = request.form['idPet']
     price = request.form['price']
     cur = mysql.connection.cursor()
-    cur.execute("UPDATE mysqldb.Order SET idCustomer=%s, idPet=%s, pet_price=%s WHERE idOrder=%s", (idCustomer, idPet, price, idOrder))
+    cur.execute("UPDATE mysqldb.Order SET idCustomer=%s, idPet=%s, pet_price=%s WHERE idOrder=%s",
+                (idCustomer, idPet, price, idOrder))
     mysql.connection.commit()
     return redirect(url_for('index'))
 
